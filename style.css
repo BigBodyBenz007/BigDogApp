@@ -77,3 +77,8 @@ h1 {
     font-size: 16px;
     cursor: pointer;
 }
+    .memory-photo {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}

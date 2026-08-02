@@ -32,16 +32,25 @@ saveButton.addEventListener("click", function () {
     const date = document.querySelector("#date").value;
     const memoryLocation = document.querySelector("#location").value;
 const notes = document.querySelector("#notes").value;
+const photo = document.querySelector("#photo").files[0];
+if (photo) {
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
 savedMemories.push({
     title: title,
     date: date,
     location: memoryLocation,
-    notes: notes
+    notes: notes,
+    photo: event.target.result
 });
-
-localStorage.setItem("memories", JSON.stringify(savedMemories));
+    };
+reader.readAsDataURL(photo);
+}
+    localStorage.setItem("memories", JSON.stringify(savedMemories));
     memoryList.innerHTML += `
         <div class="memory-card">
+        ${photo ? `<img src="${photo}" class="memory-photo">` : ""}
             <h3>📝 ${title}</h3>
             <p>${date}</p>
             <p>📍 ${memoryLocation}</p>
