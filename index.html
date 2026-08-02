@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Trace</h1>
+    <p class="tagline">Your story. Remembered.</p>
+
+    <button class="new-memory">+ New Memory</button>
+<div class="memory-form" style="display: none;">
+
+    <h2>Add New Memory</h2>
+
+    <input id="title" type="text" placeholder="Memory Title">
+
+    <br><br>
+
+    <input id="date" type="date">
+
+    <br><br>
+
+    <input id="location" type="text" placeholder="Location">
+
+    <br><br>
+
+    <textarea id="notes" placeholder="Write about your memory..."></textarea>
+
+    <br><br>
+
+    <button id="saveMemory">Save Memory</button>
+
+</div>
+
+</div>
+    <h2>Recent Memories</h2>
+<div id="memoryList">
+    <div class="memory-card">
+        <h3>📸 Gym PR</h3>
+        <p>Yesterday</p>
+    </div>
+
+    <div class="memory-card">
+        <h3>📍 Dinner with Mom</h3>
+        <p>3 days ago</p>
+    </div>
+
+    <div class="memory-card">
+        <h3>🎥 Jackson's First Car</h3>
+    
+        <p>Last week</p>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
