@@ -30,12 +30,12 @@ saveButton.addEventListener("click", function () {
 
     const title = document.querySelector("#title").value;
     const date = document.querySelector("#date").value;
-    const location = document.querySelector("#location").value;
+    const memoryLocation = document.querySelector("#location").value;
 const notes = document.querySelector("#notes").value;
 savedMemories.push({
     title: title,
     date: date,
-    location: location,
+    location: memoryLocation,
     notes: notes
 });
 
@@ -44,11 +44,19 @@ localStorage.setItem("memories", JSON.stringify(savedMemories));
         <div class="memory-card">
             <h3>📝 ${title}</h3>
             <p>${date}</p>
-            <p>📍 ${location}</p>
+            <p>📍 ${memoryLocation}</p>
             <p>${notes}</p>
             <button class="delete-btn">🗑️ Delete</button>
         </div>
     `;
+    document.querySelectorAll(".delete-btn").forEach(function(button) {
+    button.onclick = function() {
+        const index = this.dataset.index;
+        savedMemories.splice(index, 1);
+        localStorage.setItem("memories", JSON.stringify(savedMemories));
+        location.reload();
+    };
+});
 document.querySelector("#title").value = "";
 document.querySelector("#date").value = "";
 document.querySelector("#location").value = "";
